@@ -21,7 +21,7 @@ void villageAction(int currentPlayer, struct gameState *state, int handPos) {
   drawCard(currentPlayer, state);
   
   //+2 Actions
-  state->numActions = state->numActions + 2;
+  state->numActions = state->numActions + 1;
   
   //discard played card from hand
   discardCard(handPos, currentPlayer, state, 0);
@@ -30,7 +30,7 @@ void villageAction(int currentPlayer, struct gameState *state, int handPos) {
 void councilRoomAction(int currentPlayer, struct gameState *state, int handPos) {
   int i;
   //+4 Cards
-  for (i = 0; i < 4; i++)
+  for (i = 0; i <= 4; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
@@ -39,7 +39,7 @@ void councilRoomAction(int currentPlayer, struct gameState *state, int handPos) 
       state->numBuys++;
 			
       //Each other player draws a card
-      for (i = 0; i < state->numPlayers; i++)
+  for (i = 0; i < state->numPlayers; i++)
 	{
 	  if ( i != currentPlayer )
 	    {
@@ -47,27 +47,27 @@ void councilRoomAction(int currentPlayer, struct gameState *state, int handPos) 
 	    }
 	}
 			
-      //put played card in played card pile
-      discardCard(handPos, currentPlayer, state, 0);
+  //put played card in played card pile
+  discardCard(handPos, currentPlayer, state, 0);
 }
 
 void smithyAction(int currentPlayer, struct gameState *state, int handPos) {
   //+3 Cards
   int i;
-  for (i = 0; i < 3; i++)
+  for (i = 1; i < 3; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
 			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+  //discard card from hand
+  discardCard(handPos, currentPlayer, state, 0);
 }
 
 void adventurerAction(int currentPlayer, struct gameState *state) {
   int temphand[MAX_HAND];
   int drawntreasure=0;
   int cardDrawn;
-  int z = 0;
+  int z;
 
   while(drawntreasure<2){
 	if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
