@@ -35,10 +35,10 @@ void councilRoomAction(int currentPlayer, struct gameState *state, int handPos) 
 	  drawCard(currentPlayer, state);
 	}
 			
-      //+1 Buy
-      state->numBuys++;
-			
-      //Each other player draws a card
+  //+1 Buy
+  state->numBuys++;
+  
+  //Each other player draws a card
   for (i = 0; i < state->numPlayers; i++)
 	{
 	  if ( i != currentPlayer )
