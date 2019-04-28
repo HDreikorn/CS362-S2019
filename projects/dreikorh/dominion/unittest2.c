@@ -1,5 +1,5 @@
 /*
-* UNIT TEST 1: testing refactored adventurer action.
+* UNIT TEST 2: testing refactored cardEffect.
 */
 
 #include "dominion.h"
@@ -23,6 +23,7 @@ int main() {
     struct gameState G; 
 
     game = initializeGame(numPlayers, k, seed, &G);
+	assert(game == 0);
     handCount = numHandCards(&G);
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
