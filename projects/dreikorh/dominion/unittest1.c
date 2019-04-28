@@ -17,13 +17,22 @@
 
 int main() {
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int game, seed = 1, player = 0, numPlayers = 4, handCount = 0;
+    int game, seed = 1, player = 0, numPlayers = 4, handCount = 0, victoryCards = 0, kingdomCards = 0;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
+    int startingSupplyCount[treasure_map+1];
     struct gameState G; 
 
     game = initializeGame(numPlayers, k, seed, &G);
+    assert(game == 0);
+    // Capture before states of handCount, victory cards, kingdom cards
     handCount = numHandCards(&G);
+    for (int i = 0; i < treasure_map+1; i++) {
+        printf("%d count: %d", i, G.supplyCount[i]);
+        startingSupplyCount[i] = G.supplyCount[i];
+    }
+
+    // Run cardEffect to test refactored adventurer action.
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: Test if hand count has increased by 2, checking for exactly 2 also ensures other cards were discarded.
@@ -42,6 +51,7 @@ int main() {
 			  (G.hand[player][numHandCards(&G)-2] == 5) ||
 			  (G.hand[player][numHandCards(&G)-2] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-2]");
 
+    printf("Test 4:");
     
 	return 0;
 }
