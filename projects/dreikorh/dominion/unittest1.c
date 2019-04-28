@@ -1,5 +1,5 @@
 /*
-* UNIT TEST 1: testing refactored adventurer action.
+* UNIT TEST 1: Positive testing refactored adventurer action.
 */
 
 #include "dominion.h"
@@ -28,12 +28,20 @@ int main() {
 
     // Test 1: Test if hand count has increased by 2, checking for exactly 2 also ensures other cards were discarded.
 	printf("TEST 1: ");
-	MY_ASSERT(numHandCards(&G) == (handCount+2), "\"FAILED: G.handCount = %d, Expected = %d\n\", numHandCards(&G), handCount+2");
+	MY_ASSERT(numHandCards(&G) == (handCount+2), "\"FAILED: G.handCount = %d, Expected = %d\n\", int(numHandCards(&G)), handCount+2");
 
 	// Test 2: Test if last card is a treasure card.
 	printf("TEST 2: ");
     MY_ASSERT((G.hand[player][numHandCards(&G)-1] == 4) ||
 			  (G.hand[player][numHandCards(&G)-1] == 5) ||
 			  (G.hand[player][numHandCards(&G)-1] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-1]");
+
+    // Test 3: Test if second to last card is a treasure card.
+	printf("TEST 3: ");
+    MY_ASSERT((G.hand[player][numHandCards(&G)-2] == 4) ||
+			  (G.hand[player][numHandCards(&G)-2] == 5) ||
+			  (G.hand[player][numHandCards(&G)-2] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-2]");
+
+    
 	return 0;
 }
