@@ -21,11 +21,11 @@ int main() {
     struct gameState G; 
 
     game = initializeGame(numPlayers, k, seed, &G);
-    handCount = G.handCount;
+    handCount = numHandCards(&G);
     cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: Test if hand count has increased by 2.
-    printf("G.handCount = %d, Expected = %d\n", G.handCount, handCount+2);
+    printf("G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
 
 
     return 0;
