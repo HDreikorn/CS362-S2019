@@ -53,13 +53,13 @@ int main() {
 	printf("TEST 2: ");
     MY_ASSERT((G.hand[player][numHandCards(&G)-1] == 4) ||
 			  (G.hand[player][numHandCards(&G)-1] == 5) ||
-			  (G.hand[player][numHandCards(&G)-1] == 6), "FAILED - Last card is %d, not treasure\n", G.hand[player][numHandCards(&G)-1], 0);
+			  (G.hand[player][numHandCards(&G)-1] == 6), "FAILED - Last card is %d, not treasure; player %d\n", G.hand[player][numHandCards(&G)-1], 0);
 
     // Test 3: Test if second to last card is a treasure card.
 	printf("TEST 3: ");
     MY_ASSERT((G.hand[player][numHandCards(&G)-2] == 4) ||
 			  (G.hand[player][numHandCards(&G)-2] == 5) ||
-			  (G.hand[player][numHandCards(&G)-2] == 6), "FAILED - Last card is %d, not treasure\n", G.hand[player][numHandCards(&G)-2], 0);
+			  (G.hand[player][numHandCards(&G)-2] == 6), "FAILED - Second to last card is %d, not treasure; player %d\n", G.hand[player][numHandCards(&G)-2], 0);
 	
 	// Test 4: Test to make sure no changes were made to victory cards or kingdom cards
     printf("Test 4: ");
@@ -78,7 +78,7 @@ int main() {
 			  (p1FullDeck[1] == G.deckCount[1]) &&
 			  (p2FullDeck[1] == G.deckCount[2]) &&
 			  (p1FullDeck[2] == G.discardCount[1]) &&
-			  (p2FullDeck[2] == G.discardCount[2]),"FAILED - Unexpected change made in other player card.\n", 0, 0);	
+			  (p2FullDeck[2] == G.discardCount[2]),"FAILED - Unexpected change made in other player card; player %d and %d\n", 1, 2);	
 
 	printf("Unit Test 1 complete.\n");
 
