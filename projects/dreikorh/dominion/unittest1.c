@@ -34,7 +34,7 @@ int main() {
 		startingSupplyCount[i] = G.supplyCount[i];
 	}
 
-	// All players, but player 0 who starts
+	// Caputre full deck state for all players, but player 0 who starts
 	p1FullDeck[0] = G.handCount[1];
 	p2FullDeck[0] = G.handCount[2];
 	p1FullDeck[1] = G.deckCount[1];
