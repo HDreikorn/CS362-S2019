@@ -9,7 +9,7 @@
 #include <assert.h>
 #include "rngs.h"
 
-#define MY_ASSERT(condition, msg)\
+#define MY_ASSERT(condition, msg, arg1, arg2)\
 	if (condition)\
 		printf("PASSED\n"); \
 	else \
