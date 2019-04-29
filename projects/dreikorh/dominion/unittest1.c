@@ -41,10 +41,6 @@ int main() {
 	p2FullDeck[1] = G.deckCount[2];
 	p1FullDeck[2] = G.discardCount[1];
 	p2FullDeck[2] = G.discardCount[2];
-	for(i=0; i<3;i++){
-		printf("Player 2: %d\n", p1FullDeck[i]);
-		printf("Player 3: %d\n", p2FullDeck[i]);
-	}
 
     // Run cardEffect to test refactored adventurer action.
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
@@ -77,7 +73,13 @@ int main() {
 
 	// Test 5: Test to make sure no changes were made to every other player's deck.
 	printf("Test 5: ");
-	
+	MY_ASSERT((p1FullDeck[0] == G.handCount[1]) &&
+			  (p2FullDeck[0] == G.handCount[2]) &&
+			  (p1FullDeck[1] == G.deckCount[1]) &&
+			  (p2FullDeck[1] == G.deckCount[2]) &&
+			  (p1FullDeck[2] == G.discardCount[1]) &&
+			  (p2FullDeck[2] == G.discardCount[2]),"\"FAILED - Unexpected change made in other player card.\"");	
+
 	printf("Unit Test 1 complete.\n");
 
 	return 0;
