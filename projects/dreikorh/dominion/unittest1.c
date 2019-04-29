@@ -17,27 +17,28 @@
 
 int main() {
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int game, seed = 1, player = 0, numPlayers = 4, handCount = 0, victoryCards = 0, kingdomCards = 0;
+    int i, game, seed = 1, player = 0, numPlayers = 3, handCount = 0;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
-    int startingSupplyCount[treasure_map+1];
+    int startingSupplyCount[treasure_map+1] = {0};
     struct gameState G; 
 
+	printf("Starting Unit Test 1 suite...\n");
     game = initializeGame(numPlayers, k, seed, &G);
     assert(game == 0);
+	printf("Game initialized successfully for testing...\n");
     // Capture before states of handCount, victory cards, kingdom cards
     handCount = numHandCards(&G);
-    for (int i = 0; i < treasure_map+1; i++) {
-        printf("%d count: %d", i, G.supplyCount[i]);
-        startingSupplyCount[i] = G.supplyCount[i];
-    }
+	for(i=0; i < 17; i++) {
+		startingSupplyCount[i] = G.supplyCount[i];
+	}
 
     // Run cardEffect to test refactored adventurer action.
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: Test if hand count has increased by 2, checking for exactly 2 also ensures other cards were discarded.
 	printf("TEST 1: ");
-	MY_ASSERT(numHandCards(&G) == (handCount+2), "\"FAILED: G.handCount = %d, Expected = %d\n\", int(numHandCards(&G)), handCount+2");
+	MY_ASSERT(numHandCards(&G) == (handCount+2), "\"FAILED - G.handCount = %d, Expected = %d\n\", int(numHandCards(&G)), handCount+2");
 
 	// Test 2: Test if last card is a treasure card.
 	printf("TEST 2: ");
@@ -50,8 +51,18 @@ int main() {
     MY_ASSERT((G.hand[player][numHandCards(&G)-2] == 4) ||
 			  (G.hand[player][numHandCards(&G)-2] == 5) ||
 			  (G.hand[player][numHandCards(&G)-2] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-2]");
-
+	
+	// Test 4: Test to make sure no changes were made to victory cards or kingdom cards
     printf("Test 4:");
-    
+    for (i=0; i <6; i++) {
+		if (startingSupplyCount[i] != G.supplyCount[i]){
+			printf("FAILED - Unexpected change made in card %d", i);
+			break;
+		}
+	}
+	printf("PASSED\n");
+	
+	printf("Unit Test 1 complete.\n");
+
 	return 0;
 }
