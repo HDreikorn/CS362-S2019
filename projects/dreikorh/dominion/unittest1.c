@@ -9,11 +9,11 @@
 #include <assert.h>
 #include "rngs.h"
 
-#define MY_ASSERT(condition, msg)\
+#define MY_ASSERT(condition, msg, arg1, arg2)\
 	if (condition)\
 		printf("PASSED\n"); \
 	else \
-		printf(msg);
+		printf(msg, arg1, arg2);
 
 int main() {
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
@@ -47,19 +47,19 @@ int main() {
 
     // Test 1: Test if hand count has increased by 2, checking for exactly 2 also ensures other cards were discarded.
 	printf("TEST 1: ");
-	MY_ASSERT(numHandCards(&G) == (handCount+2), "\"FAILED - G.handCount = %d, Expected = %d\n\", numHandCards(&G), handCount+2");
+	MY_ASSERT(numHandCards(&G) == (handCount+2), "FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
 
 	// Test 2: Test if last card is a treasure card.
 	printf("TEST 2: ");
     MY_ASSERT((G.hand[player][numHandCards(&G)-1] == 4) ||
 			  (G.hand[player][numHandCards(&G)-1] == 5) ||
-			  (G.hand[player][numHandCards(&G)-1] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-1]");
+			  (G.hand[player][numHandCards(&G)-1] == 6), "FAILED - Last card is %d, not treasure\n", G.hand[player][numHandCards(&G)-1], 0);
 
     // Test 3: Test if second to last card is a treasure card.
 	printf("TEST 3: ");
     MY_ASSERT((G.hand[player][numHandCards(&G)-2] == 4) ||
 			  (G.hand[player][numHandCards(&G)-2] == 5) ||
-			  (G.hand[player][numHandCards(&G)-2] == 6), "\"FAILED - Last card is %d, not treasure\",G.hand[player][numHandCards(&G)-2]");
+			  (G.hand[player][numHandCards(&G)-2] == 6), "FAILED - Last card is %d, not treasure\n", G.hand[player][numHandCards(&G)-2], 0);
 	
 	// Test 4: Test to make sure no changes were made to victory cards or kingdom cards
     printf("Test 4: ");
@@ -78,7 +78,7 @@ int main() {
 			  (p1FullDeck[1] == G.deckCount[1]) &&
 			  (p2FullDeck[1] == G.deckCount[2]) &&
 			  (p1FullDeck[2] == G.discardCount[1]) &&
-			  (p2FullDeck[2] == G.discardCount[2]),"\"FAILED - Unexpected change made in other player card.\"");	
+			  (p2FullDeck[2] == G.discardCount[2]),"FAILED - Unexpected change made in other player card.\n", 0, 0);	
 
 	printf("Unit Test 1 complete.\n");
 
