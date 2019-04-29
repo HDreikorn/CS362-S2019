@@ -24,6 +24,9 @@ testAdventurerRefactor: unittest1.c dominion.o rngs.o
 testSmithyRefactor: unittest2.c dominion.o rngs.o
 	gcc -o testSmithyRefactor -g unittest2.c dominion.o rngs.o $(CFLAGS)
 
+testGreatHallRefactor: unittest3.c dominion.o rngs.o
+	gcc -o testGreatHallRefactor -g unittest3.c dominion.o rngs.o $(CFLAGS)
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
