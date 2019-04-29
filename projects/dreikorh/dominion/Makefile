@@ -21,6 +21,9 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 testAdventurerRefactor: unittest1.c dominion.o rngs.o
 	gcc -o testAdventurerRefactor -g unittest1.c dominion.o rngs.o $(CFLAGS)
 
+testSmithyRefactor: unittest2.c dominion.o rngs.o
+	gcc -o testSmithyRefactor -g unittest2.c dominion.o rngs.o $(CFLAGS)
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
