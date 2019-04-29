@@ -21,19 +21,27 @@ int main() {
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G; 
-
+	
+	printf("Starting Unit Test 2 suite...\n");
     game = initializeGame(numPlayers, k, seed, &G);
+	printf("Game initialized successfully for testing...\n");
 	assert(game == 0);
-    handCount = G.handCount[player];
+    handCount = numHandCards(&G);
 	deckCount = G.deckCount[player];
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: Test if hand count has increased by 3.
 	printf("TEST 1: ");
-	MY_ASSERT(numHandCards(&G) == (handCount+3), "\"FAILED: G.handCount = %d, Expected = %d\n\", numHandCards(&G), handCount+3");
+	if(handCount == (handCount+3))
+		printf("PASSED\n");
+	else
+		printf("FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+3);
 
 	// Test 2: Test if cards came from own pile.
 	printf("TEST 2: ");
-    MY_ASSERT((deckCount-3) == G.deckCount[player], "\"FAILED - G.deckCount = %d, Expected = %d\n\", G.deckCount[player], deckCount-3");
+    if((deckCount-3) == G.deckCount[player])
+		printf("PASSED");
+	else
+		printf("FAILED - G.deckCount = %d, Expected = %d\n", G.deckCount[player], deckCount-3);
 	return 0;
 }
