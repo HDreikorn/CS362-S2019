@@ -30,6 +30,9 @@ testGreatHallRefactor: unittest3.c dominion.o rngs.o
 testVillageRefactor: unittest4.c dominion.o rngs.o
 	gcc -o testVillageRefactor -g unittest4.c dominion.o rngs.o $(CFLAGS)
 
+testCard1: cardtest1.c dominion.o rngs.o
+	gcc -o testCard1 -g cardtest1.c dominion.o rngs.o $(CFLAGS)
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
