@@ -1,5 +1,5 @@
 /*
-* UNIT TEST 3: Positive testing refactored greatHallAction.
+* UNIT TEST 4: Positive testing refactored village.
 */
 
 #include "dominion.h"
@@ -46,7 +46,7 @@ int main() {
 	p2FullDeck[2] = G.discardCount[2];
 
 	// Run cardEffect to test refactored Smithy action
-    game = cardEffect(great_hall, choice1, choice2, choice3, &G, handpos, &bonus);
+    game = cardEffect(village, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: Test if hand count has increased by 1 and then discard 1.
 	printf("TEST 1: ");
@@ -64,10 +64,10 @@ int main() {
 
 	// Test 3: Test if action state increased by one for the player.
     printf("TEST 3: ");
-    if(numActions+1 == G.numActions)
+    if(numActions+2 == G.numActions)
         printf("PASSED\n");
     else
-        printf("FAILED - G.numActions = %d, Expected = %d\n", G.numActions, numActions+1);
+        printf("FAILED - G.numActions = %d, Expected = %d\n", G.numActions, numActions+2);
 
     // Test 4: No state change for the supply cards (victory, gold, kingdom)
 	printf("TEST 4: ");

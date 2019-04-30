@@ -46,12 +46,12 @@ int main() {
 	// Run cardEffect to test refactored Smithy action
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
 
-    // Test 1: Test if hand count has increased by 3.
+    // Test 1: Test if hand count has increased by 3 and then discard used card.
 	printf("TEST 1: ");
-	if(handCount == (handCount+3))
+	if(handCount == (handCount+2))
 		printf("PASSED\n");
 	else
-		printf("FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+3);
+		printf("FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
 
 	// Test 2: Test if cards came from own pile, by testing if deck decreased.
 	printf("TEST 2: ");
