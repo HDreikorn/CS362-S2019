@@ -24,7 +24,7 @@ int main() {
 	int p1FullDeck[3], p2FullDeck[3];
     struct gameState G; 
 	
-	printf("Starting Unit Test 3 suite...\n");
+	printf("Starting Unit Test 4 suite...\n");
     game = initializeGame(numPlayers, k, seed, &G);
 	printf("Game initialized successfully for testing...\n");
 	assert(game == 0);
@@ -88,6 +88,6 @@ int main() {
 			  (p1FullDeck[2] == G.discardCount[1]) &&
 			  (p2FullDeck[2] == G.discardCount[2]),"FAILED - Unexpected change made in other player card.\n", 0, 0);
 
-	printf("Unit test 3 complete.");
+	printf("Unit test 4 complete.\n");
 	return 0;
 }
