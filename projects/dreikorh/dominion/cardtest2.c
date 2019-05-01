@@ -92,7 +92,7 @@ int main() {
     G.playedCards[player] = adventurer;
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
     if (G.playedCards[player] == smithy) {
-        printf("FAILED - system should not accept out of bounds handpos.\n", G.playedCards[player], smithy);
+        printf("FAILED - system should not accept out of bounds handpos.\n");
     }
     else {
         printf("PASSED");
@@ -114,7 +114,7 @@ int main() {
     G.playedCards[player] = adventurer;
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
     if (G.playedCards[player] == smithy) {
-        printf("FAILED - system should not accept out of bounds handpos.\n", G.playedCards[player], smithy);
+        printf("FAILED - system should not accept out of bounds handpos.\n");
     }
     else {
         printf("PASSED");
