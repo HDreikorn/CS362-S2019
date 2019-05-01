@@ -16,7 +16,7 @@
 		printf(msg, arg1, arg2);
 
 int main() {
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int handpos = 0, choice1 = 1, choice2 = 0, choice3 = 0, bonus = 0;
     int i, game, seed = 1, player = 0, numPlayers = 3, numBuys = 0, coins = 0;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
@@ -32,6 +32,7 @@ int main() {
     // Capture before states
     numBuys = G.numBuys;
     coins = G.coins;
+    G.hand[player][1] = village;
 
     // Capture starting supply state
     for(i=0; i < 17; i++) {
@@ -47,7 +48,7 @@ int main() {
 	p2FullDeck[2] = G.discardCount[2];
 
     // Run the function set to salvager card action
-    game = cardEffect(salvager, village, choice2, choice3, &G, handpos, &bonus);
+    game = cardEffect(salvager, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: The buy count is increased by 1
     printf("Test 1: ");
@@ -57,7 +58,7 @@ int main() {
     printf("Test 2.a: ");
     MY_ASSERT(G.playedCardCount == 1, "Failed - G.playedCardCount = %d, Expected = %d\n", G.playedCardCount, 1);
     printf("Test 2.b: ");
-    MY_ASSERT(G.discardCount == 0, "Failed - G.discardCount = %d, Expected = %d\n", G.discardCount, 0);
+    MY_ASSERT(G.discardCount[player] == 0, "Failed - G.discardCount = %d, Expected = %d\n", G.discardCount[player], 0);
 
     // Test 3: Get +3 coins for trashing village
     printf("Test 3: ");
