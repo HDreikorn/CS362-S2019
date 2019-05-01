@@ -83,5 +83,38 @@ int main() {
     }
 	printf("PASSED\n");
 
+    //********************************************************************
+    // TEST 5: All cards discarded when deck is at max
+    //********************************************************************
+
+    //Init first 2 cards in deck to be treasure
+    G.deckCount[player] = 0;
+    G.deck[player][0] = copper;
+    G.deckCount[player]++;
+    G.deck[player][1] = smithy;
+    G.deckCount[player]++;
+
+    // Init rest of cards to not be treasure
+    for (i=0; i<(MAX_DECK-2); i++) {
+        G.deck[player][G.deckCount[player]] = smithy;
+        G.deckCount[player]++;
+    }
+
+    printf("Deck count before card effect: %d, Discard Count: %d\n", G.deckCount[player], G.discardCount[player]);
+	// Run card effect to test adventurer funtion.
+    game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
+
+    printf("Test 5: ");
+    printf("Deck count after card effect: %d, Discard Count: %d\n", G.deckCount[player], G.discardCount[player]);
+    for (i=0; i<G.discardCount[player]; i++) {
+        if(G.discard[player][i] != smithy) {
+            printf("FAILED - G.discard[player][%d] = %d, Expected = %d\n", i, G.discard[player][i], smithy);
+			break;
+		}
+    }
+	printf("PASSED\n");
+
+    printf("Boundry test for adventurer discard complete.\n");
+
 	return 0;
 }
