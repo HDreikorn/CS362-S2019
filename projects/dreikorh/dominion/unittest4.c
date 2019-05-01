@@ -24,7 +24,7 @@ int main() {
 	int p1FullDeck[3], p2FullDeck[3];
     struct gameState G; 
 	
-	printf("Starting Unit Test 4 suite...\n");
+	printf("Starting Unit Test 4 for villageAction()...\n");
     game = initializeGame(numPlayers, k, seed, &G);
 	printf("Game initialized successfully for testing...\n");
 	assert(game == 0);

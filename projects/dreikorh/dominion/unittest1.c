@@ -24,7 +24,7 @@ int main() {
 	int p1FullDeck[3], p2FullDeck[3];
     struct gameState G; 
 
-	printf("Starting Unit Test 1 suite...\n");
+	printf("Starting Unit Test 1 for adventurerAction()...\n");
     game = initializeGame(numPlayers, k, seed, &G);
     assert(game == 0);
 	printf("Game initialized successfully for testing...\n");
@@ -45,7 +45,7 @@ int main() {
     // Run cardEffect to test refactored adventurer action.
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
-    // Test 1: Test if hand count has increased by 2, checking for exactly 2 also ensures other cards were discarded.
+    // Test 1: Test if hand count has increased by 2 (discard cehck handled in cardtest1.c)
 	printf("TEST 1: ");
 	MY_ASSERT(numHandCards(&G) == (handCount+2), "FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
 
