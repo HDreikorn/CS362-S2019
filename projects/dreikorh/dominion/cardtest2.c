@@ -30,6 +30,8 @@ int main() {
     G.hand[player][handpos] = smithy;
     // Set handCount to 1 for consistency
     G.handCount[player] = 1;
+    // Set first played card to something else, just in case.
+    G.playedCards[player] = adventurer;
 
     //**********************************************************************
     // TEST 1: Minimum handpos = 0, system accepts and place in plaredCards
@@ -51,6 +53,8 @@ int main() {
     // Set handCount to 1 for consistency
     G.handCount[player] = 1;
     G.playedCardCount = 0;
+    // Set first played card to something else, just in case.
+    G.playedCards[player] = adventurer;
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
     printf("Test 2: ");
     MY_ASSERT((G.playedCards[player] == smithy), "FAILED - G.playedCards[player] = %d, Expected = %d.\n", G.playedCards[player], smithy);
@@ -66,6 +70,8 @@ int main() {
     // Set handCount to 1 for consistency
     G.handCount[player] = 1;
     G.playedCardCount = 0;
+    // Set first played card to something else, just in case.
+    G.playedCards[player] = adventurer;
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
     printf("Test 3: ");
     MY_ASSERT((G.playedCards[player] == smithy), "FAILED - G.playedCards[player] = %d, Expected = %d.\n", G.playedCards[player], smithy);
@@ -76,14 +82,43 @@ int main() {
     
     // Run card effect to test adventurer funtion.
     handpos = -1;
-    printf("Test 4: If segfault out of bounds not handled gracefully, FAIL.");
+    printf("Test 4: (If segfault out of bounds not handled gracefully, FAIL) ");
     // Insert smithy card in hand.
     G.hand[player][handpos] = smithy;
     // Set handCount to 1 for consistency
     G.handCount[player] = 1;
     G.playedCardCount = 0;
+    // Set first played card to something else, just in case.
+    G.playedCards[player] = adventurer;
     game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
-    MY_ASSERT((G.playedCards[player] == smithy), "FAILED - G.playedCards[player] = %d, Expected = %d.\n", G.playedCards[player], smithy);
+    if (G.playedCards[player] == smithy) {
+        printf("FAILED - system should not accept out of bounds handpos.\n", G.playedCards[player], smithy);
+    }
+    else {
+        printf("PASSED");
+    }
+
+    //**********************************************************************
+    // TEST 5: Out of bounds handpos = 500, system should handle gracefully
+    //**********************************************************************
+    
+    // Run card effect to test adventurer funtion.
+    handpos = MAX_HAND;
+    printf("Test 5: (If segfault out of bounds not handled gracefully, FAIL) ");
+    // Insert smithy card in hand.
+    G.hand[player][handpos] = smithy;
+    // Set handCount to 1 for consistency
+    G.handCount[player] = 1;
+    G.playedCardCount = 0;
+    // Set first played card to something else, just in case.
+    G.playedCards[player] = adventurer;
+    game = cardEffect(smithy, choice1, choice2, choice3, &G, handpos, &bonus);
+    if (G.playedCards[player] == smithy) {
+        printf("FAILED - system should not accept out of bounds handpos.\n", G.playedCards[player], smithy);
+    }
+    else {
+        printf("PASSED");
+    }
 
 	return 0;
 }
