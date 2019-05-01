@@ -17,11 +17,9 @@
 
 int main() {
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int i, game, seed = 1, player = 0, numPlayers = 3, handCount = 0, numActions = 0;
+    int i, game, seed = 1, player = 0, numPlayers = 3 ;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
-	int startingSupplyCount[treasure_map+1] = {0};
-	int p1FullDeck[3], p2FullDeck[3];
     struct gameState G; 
 	
 	printf("Starting Boundry Adventurer test suite...\n");
@@ -30,9 +28,6 @@ int main() {
 	assert(game == 0);
     // Insert adventuer card in hand.
     G.hand[player][ G.handCount[player] - 1 ] = adventurer;
-    for (i = 0; i < G.handCount[player]; i++){
-        printf("Hand: %d\n", G.hand[player][i]);
-    }
 
     //**********************************************************************
     // TEST 1: No card is discarded when first 2 cards in deck are treasures.
@@ -51,7 +46,7 @@ int main() {
     // Test 2: Test if adventurer was discarded into playedCards.
     //*************************************************************
     printf("Test 2: ");
-    MY_ASSERT((G.playedCardCount == 1), "FAILED - G.playedCardCount = %d, Expected = %d. %s", G.playedCardCount, 1, "Played card was not discarded.");
+    MY_ASSERT((G.playedCardCount == 1), "FAILED - G.playedCardCount = %d, Expected = %d. %s", G.playedCardCount, 1, "Played card was not discarded.\n");
 
     //*************************************************************
     // TEST 3: Card is discarded when first draw is not a treasure.
@@ -71,20 +66,22 @@ int main() {
     //********************************************************************
     
     // Init last 10 cards to not be treasure
-    for (i=0; i<11; i++) {
+    for (i=0; i<10; i++) {
         G.deck[player][G.deckCount[player]] = smithy;
         G.deckCount[player]++;
     }
-
-    // Run card effect to test adventurer funtion.
+    
+	// Run card effect to test adventurer funtion.
     game = cardEffect(adventurer, choice1, choice2, choice3, &G, handpos, &bonus);
 
     printf("Test 4: ");
-    for (i=0; i<11; i++) {
-        MY_ASSERT((G.discard[player][i] == smithy), "FAILED - G.discard[player][%d] = %d, Expected = %d", i, G.discard[player][i], smithy);
-        if(G.discard[player][i] != smithy)
-            break;
+    for (i=3; i<13; i++) {
+        if(G.discard[player][i] != smithy) {
+            printf("FAILED - G.discard[player][%d] = %d, Expected = %d\n", i, G.discard[player][i], smithy);
+			break;
+		}
     }
+	printf("PASSED\n");
 
 	return 0;
 }
