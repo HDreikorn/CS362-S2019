@@ -17,11 +17,11 @@
 
 int main() {
     int handpos = 0, choice1 = 1, choice2 = 0, choice3 = 0, bonus = 0;
-    int i, game, seed = 1, player = 0, numPlayers = 3, numBuys = 0, coins = 0;
+    int game, seed = 1, player = 0, numPlayers = 3, numBuys = 0, coins = 0;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
-    int p0TopCard, p1TopCard, p2TopCard, p0DeckCount, p1DeckCount, p2DeckCount;
+    int p1TopCard, p2TopCard, p1DeckCount, p2DeckCount;
 	
 	printf("Starting positive Salvager tests...\n");
     game = initializeGame(numPlayers, k, seed, &G);
@@ -29,13 +29,14 @@ int main() {
 	assert(game == 0);
 
     // Capture before states
-    p0TopCard = G.deck[player][G.deckCount[player]];
-    p0DeckCount = G.deckCount[player];
     p1TopCard = G.deck[1][G.deckCount[1]];
     p1DeckCount = G.deckCount[1];
     p2TopCard = G.deck[2][G.deckCount[2]];
     p2DeckCount = G.deckCount[2];
     
+    // Run the function set to salvager card action
+    game = cardEffect(salvager, choice1, choice2, choice3, &G, handpos, &bonus);
+
     // Test 1: All other players discarded top card of deck
     printf("Test 1.a: ");
     MY_ASSERT(G.discard[1][0] == p1TopCard, "FAIL - G.discard[1][0] = %d, Expected = %d\n", G.discard[1][0], p1TopCard);
