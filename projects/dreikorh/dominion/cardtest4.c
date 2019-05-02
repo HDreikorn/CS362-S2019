@@ -17,7 +17,7 @@
 
 int main() {
     int handpos = 0, choice1 = 1, choice2 = 0, choice3 = 0, bonus = 0;
-    int game, seed = 1, player = 0, numPlayers = 3, numBuys = 0, coins = 0;
+    int game, seed = 1, player = 0, numPlayers = 3;
     int k[10] = {adventurer, council_room, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
     struct gameState G;
@@ -45,9 +45,9 @@ int main() {
 
     // Test 2: All players gain a Curse card on thier top deck
     printf("Test 2.a: ");
-    MY_ASSERT(G.deck[1][p1DeckCount-1] == curse, "FAIL - P1 top deck card = %d, Expected = %d\n", G.discard[1][p1DeckCount-1], curse);
+    MY_ASSERT(G.deck[1][p1DeckCount-1] == curse, "FAIL - P1 top deck card = %d, Expected = %d\n", G.deck[1][p1DeckCount-1], curse);
     printf("Test 2.b: ");
-    MY_ASSERT(G.discard[2][p2DeckCount-1] == curse, "FAIL - P2 top deck card = %d, Expected = %d\n", G.discard[2][p2DeckCount-1], curse);
+    MY_ASSERT(G.deck[2][p2DeckCount-1] == curse, "FAIL - P2 top deck card = %d, Expected = %d\n", G.deck[2][p2DeckCount-1], curse);
 
     // Test 3: Deck count remains the same
     printf("Test 3.a: ");
