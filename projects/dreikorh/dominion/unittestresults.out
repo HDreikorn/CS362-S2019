@@ -9,6 +9,9 @@ Test 5: PASSED
 Unit Test 1 complete.
 File 'dominion.c'
 Lines executed:20.07% of 563
+Branches executed:23.74% of 417
+Taken at least once:14.87% of 417
+Calls executed:11.58% of 95
 Creating 'dominion.c.gcov'
 
 unittest2.c
@@ -20,6 +23,9 @@ TEST 3: PASSED
 TEST 4: PASSED
 Unit test 2 complete.File 'dominion.c'
 Lines executed:23.27% of 563
+Branches executed:25.66% of 417
+Taken at least once:16.31% of 417
+Calls executed:14.74% of 95
 Creating 'dominion.c.gcov'
 
 unittest3.c
@@ -33,6 +39,9 @@ TEST 5: PASSED
 Unit test 3 complete.
 File 'dominion.c'
 Lines executed:24.51% of 563
+Branches executed:25.66% of 417
+Taken at least once:16.55% of 417
+Calls executed:17.89% of 95
 Creating 'dominion.c.gcov'
 
 unittest4.c
@@ -46,6 +55,9 @@ TEST 5: PASSED
 Unit test 4 complete.
 File 'dominion.c'
 Lines executed:25.75% of 563
+Branches executed:25.66% of 417
+Taken at least once:16.79% of 417
+Calls executed:21.05% of 95
 Creating 'dominion.c.gcov'
 
 cardtest1.c
@@ -59,6 +71,9 @@ Test 5: PASSED
 Boundry test for adventurer discard complete.
 File 'dominion.c'
 Lines executed:29.48% of 563
+Branches executed:27.58% of 417
+Taken at least once:19.66% of 417
+Calls executed:23.16% of 95
 Creating 'dominion.c.gcov'
 
 cardtest2.c
@@ -71,6 +86,9 @@ Test 4: (If segfault out of bounds not handled gracefully, FAIL) FAILED - system
 Test 5: (If segfault out of bounds not handled gracefully, FAIL) FAILED - system should not accept out of bounds handpos.
 File 'dominion.c'
 Lines executed:29.66% of 563
+Branches executed:27.58% of 417
+Taken at least once:19.90% of 417
+Calls executed:23.16% of 95
 Creating 'dominion.c.gcov'
 
 cardtest3.c
@@ -85,6 +103,9 @@ Test 5: PASSED
 Card Test 3 complete.
 File 'dominion.c'
 Lines executed:31.79% of 563
+Branches executed:34.77% of 417
+Taken at least once:20.86% of 417
+Calls executed:28.42% of 95
 Creating 'dominion.c.gcov'
 
 cardtest4.c
@@ -101,5 +122,8 @@ Test 5: PASSED
 Card Test 4 complete.
 File 'dominion.c'
 Lines executed:32.86% of 563
+Branches executed:35.73% of 417
+Taken at least once:22.06% of 417
+Calls executed:28.42% of 95
 Creating 'dominion.c.gcov'
 
