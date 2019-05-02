@@ -45,6 +45,32 @@ testCard4: cardtest4.c dominion.o rngs.o
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
+unittestresults: testAdventurerRefactor testSmithyRefactor testGreatHallRefactor testVillageRefactor testCard1 testCard2 testCard3 testCard4 dominion.o rngs.o
+	echo "unittest1.c" > unittestresults.out
+	./testAdventurerRefactor >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "unittest2.c" >> unittestresults.out
+	./testSmithyRefactor >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "unittest3.c" >> unittestresults.out
+	./testGreatHallRefactor >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "unittest4.c" >> unittestresults.out
+	./testVillageRefactor >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "cardtest1.c" >> unittestresults.out
+	./testCard1 >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "cardtest2.c" >> unittestresults.out
+	./testCard2 >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "cardtest3.c" >> unittestresults.out
+	./testCard3 >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	echo "cardtest4.c" >> unittestresults.out
+	./testCard4 >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
+
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
@@ -60,4 +86,4 @@ player: player.c interface.o
 all: playdom player 
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe 

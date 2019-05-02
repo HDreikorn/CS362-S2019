@@ -35,7 +35,7 @@ int main() {
     p2DeckCount = G.deckCount[2];
     
     // Run the function set to salvager card action
-    game = cardEffect(salvager, choice1, choice2, choice3, &G, handpos, &bonus);
+    game = cardEffect(sea_hag, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: All other players discarded top card of deck
     printf("Test 1.a: ");
