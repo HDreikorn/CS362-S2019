@@ -82,7 +82,7 @@ int main() {
 			  (p1FullDeck[2] == G.discardCount[1]) &&
 			  (p2FullDeck[2] == G.discardCount[2]),"FAILED - Unexpected change made in other player card; player %d or %d\n", 1, 2);	
 
-	printf("Card Test 2 complete.\n");
+	printf("Card Test 3 complete.\n");
 
 	return 0;
 }
