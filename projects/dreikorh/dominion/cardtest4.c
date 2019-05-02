@@ -35,7 +35,7 @@ int main() {
     p2DeckCount = G.deckCount[2];
     
     // Run the function set to salvager card action
-    game = cardEffect(salvager, choice1, choice2, choice3, &G, handpos, &bonus);
+    game = cardEffect(sea_hag, choice1, choice2, choice3, &G, handpos, &bonus);
 
     // Test 1: All other players discarded top card of deck
     printf("Test 1.a: ");
@@ -45,9 +45,9 @@ int main() {
 
     // Test 2: All players gain a Curse card on thier top deck
     printf("Test 2.a: ");
-    MY_ASSERT(G.deck[1][p1DeckCount-1] == curse, "FAIL - P1 top deck card = %d, Expected = %d\n", G.discard[1][p1DeckCount-1], curse);
+    MY_ASSERT(G.deck[1][p1DeckCount-1] == curse, "FAIL - P1 top deck card = %d, Expected = %d\n", G.deck[1][p1DeckCount-1], curse);
     printf("Test 2.b: ");
-    MY_ASSERT(G.discard[2][p2DeckCount-1] == curse, "FAIL - P2 top deck card = %d, Expected = %d\n", G.discard[2][p2DeckCount-1], curse);
+    MY_ASSERT(G.deck[2][p2DeckCount-1] == curse, "FAIL - P2 top deck card = %d, Expected = %d\n", G.deck[2][p2DeckCount-1], curse);
 
     // Test 3: Deck count remains the same
     printf("Test 3.a: ");
