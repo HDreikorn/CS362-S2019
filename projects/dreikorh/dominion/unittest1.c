@@ -47,7 +47,7 @@ int main() {
 
     // Test 1: Test if hand count has increased by 2 (discard cehck handled in cardtest1.c)
 	printf("TEST 1: ");
-	MY_ASSERT(numHandCards(&G) == (handCount+2), "FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
+	MY_ASSERT(numHandCards(&G) == (handCount+1), "FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount+2);
 
 	// Test 2: Test if last card is a treasure card.
 	printf("TEST 2: ");
