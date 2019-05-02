@@ -1,7 +1,7 @@
 unittest1.c
 Starting Unit Test 1 for adventurerAction()...
 Game initialized successfully for testing...
-TEST 1: PASSED
+TEST 1: FAILED - G.handCount = 7, Expected = 6
 TEST 2: PASSED
 TEST 3: PASSED
 Test 4: PASSED
