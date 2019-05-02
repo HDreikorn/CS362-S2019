@@ -50,7 +50,7 @@ int main() {
 
     // Test 1: Test if hand count has increased by 1 and then discard 1.
 	printf("TEST 1: ");
-	if(handCount == (handCount))
+	if(handCount == G.handCount[player])
 		printf("PASSED\n");
 	else
 		printf("FAILED - G.handCount = %d, Expected = %d\n", numHandCards(&G), handCount);
