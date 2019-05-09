@@ -13,7 +13,13 @@ char inputChar()
 char *inputString()
 {
     // TODO: rewrite this function
-    return "reset\0";
+	char pool[5] = {'r', 'e', 's', 't', '\0'};
+	char s[6];
+	for (int i = 0; i < 5; i++) {
+		s[i] = pool[rand() % 5];
+	}
+	//s[1] = pool[rand() % 5];
+    return s;
 }
 
 void testme()
