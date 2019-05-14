@@ -13,15 +13,17 @@ void checkGreatHallAction(int p, struct gameState *post, int handpos) {
   memcpy (&pre, post, sizeof(struct gameState));
 
   int r;
-    printf ("great hall PRE: HC %d HP %d Action %d\n", pre.handCount[p], handpos, pre.numActions);
+  //printf ("great hall PRE: HC %d HP %d Action %d\n", pre.handCount[p], handpos, pre.numActions);
   
   r = cardEffect(great_hall, choice1, choice2, choice3, post, handpos, &bonus);
 
-  	printf ("great hall POST: HC %d HP %d Action %d\n", post->handCount[p], handpos, post->numActions);
+  //printf ("great hall POST: HC %d HP %d Action %d\n", post->handCount[p], handpos, post->numActions);
+  pre.numActions++;
 
   assert (r == 0);
-  //assert(pre.handCount[p]+=1 == post->handCount[p]);
-  //assert(pre.numActions +=1 == post->numActions);
+  assert(pre.numActions == post->numActions);
+  assert(pre.handCount[p] == post->handCount[p]);
+  assert((pre.deckCount[p]-1) == post->deckCount[p]);
 }
 
 int main () {
@@ -42,6 +44,7 @@ int main () {
   initializeGame(2, k, seed, &G);
 
   for (n = 0; n < 2000; n++) {
+    G.numActions = 1;
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
