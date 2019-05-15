@@ -43,8 +43,8 @@ int main () {
   initializeGame(2, k, seed, &G);
 
   for (n = 0; n < 2000; n++) {
-	p = 0;
-	G.whoseTurn = 0;
+	  p = 0;
+	  G.whoseTurn = 0;
     G.deckCount[p] = floor(Random() * MAX_DECK);
     G.discardCount[p] = floor(Random() * MAX_DECK);
     G.handCount[p] = floor(Random() * MAX_HAND);
