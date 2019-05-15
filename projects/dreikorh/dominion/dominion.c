@@ -1192,7 +1192,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     case salvager:
       //+1 buy
       state->numBuys++;
-			
       if (choice1)
 	{
 	  //gain coins equal to trashed card
@@ -1251,7 +1250,6 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag)
 {
-	
   //if card is not trashed, added to Played pile 
   if (trashFlag < 1)
     {

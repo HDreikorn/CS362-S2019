@@ -24,6 +24,9 @@ testAdventurer: randomtestadventurer.c dominion.o rngs.o
 testGreatHall: randomtestcard1.c dominion.o rngs.o
 	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
+testSalvager: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
