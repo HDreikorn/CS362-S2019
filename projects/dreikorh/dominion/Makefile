@@ -33,6 +33,15 @@ testAll: dominion.o testSuite.c
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
+randomtestresults: testAdventurer testGreatHall testSalvager
+	./randomtestadventurer > randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	./randomtestcard1 >> randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	./randomtestcard2 >> randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	cat dominion.c.gcov >> randomtestresults.out
+
 runtests: testDrawCard 
 	./testDrawCard &> unittestresult.out
 	gcov dominion.c >> unittestresult.out
