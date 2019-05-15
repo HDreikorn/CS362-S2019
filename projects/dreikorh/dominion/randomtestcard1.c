@@ -26,7 +26,7 @@ void checkGreatHallAction(int p, struct gameState *post, int handpos) {
 
 int main () {
 
-  int n, p, j, trashFlag, seed =1, handpos = 0;
+  int n, p, j, seed =1, handpos = 0;
 
   int k[10] = {adventurer, council_room, feast, gardens, mine,
 	       remodel, smithy, village, baron, great_hall};
@@ -40,6 +40,7 @@ int main () {
   SelectStream(2);
   PutSeed(time(NULL));
   initializeGame(2, k, seed, &G);
+  p = 0;
 
   for (n = 0; n < 2000; n++) {
     G.deckCount[p] = floor(Random() * MAX_DECK);
