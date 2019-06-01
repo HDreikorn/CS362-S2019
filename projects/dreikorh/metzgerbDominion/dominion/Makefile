@@ -71,6 +71,24 @@ unittestresults: testAdventurerRefactor testSmithyRefactor testGreatHallRefactor
 	./testCard4 >> unittestresults.out
 	gcov -b dominion.c >> unittestresults.out
 
+testAdventurer: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
+testGreatHall: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
+
+testSalvager: randomtestcard2.c dominion.o rngs.o
+gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+
+randomtestresults: testAdventurer testGreatHall testSalvager
+	./randomtestadventurer > randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	./randomtestcard1 >> randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	./randomtestcard2 >> randomtestresults.out
+	gcov dominion.c -fb >> randomtestresults.out
+	cat dominion.c.gcov >> randomtestresults.out
+
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
