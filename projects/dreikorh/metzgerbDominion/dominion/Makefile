@@ -78,7 +78,7 @@ testGreatHall: randomtestcard1.c dominion.o rngs.o
 	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o $(CFLAGS)
 
 testSalvager: randomtestcard2.c dominion.o rngs.o
-gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o $(CFLAGS)
 
 randomtestresults: testAdventurer testGreatHall testSalvager
 	./randomtestadventurer > randomtestresults.out
