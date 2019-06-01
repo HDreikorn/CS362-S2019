@@ -1,0 +1,130 @@
+unittest1.c
+Starting Unit Test 1 for adventurerAction()...
+Game initialized successfully for testing...
+TEST 1: FAILED - G.handCount = 7, Expected = 6
+TEST 2: PASSED
+TEST 3: PASSED
+Test 4: PASSED
+Test 5: PASSED
+Unit Test 1 complete.
+File 'dominion.c'
+Lines executed:20.39% of 559
+Branches executed:23.86% of 415
+Taken at least once:15.18% of 415
+Calls executed:11.58% of 95
+Creating 'dominion.c.gcov'
+
+unittest2.c
+Starting Unit Test 2 for smithyAction()...
+Game initialized successfully for testing...
+TEST 1: FAILED - G.handCount = 8, Expected = 7
+TEST 2: FAILED - G.deckCount = 1, Expected = 2
+TEST 3: PASSED
+TEST 4: PASSED
+Unit test 2 complete.File 'dominion.c'
+Lines executed:23.43% of 559
+Branches executed:25.78% of 415
+Taken at least once:16.63% of 415
+Calls executed:14.74% of 95
+Creating 'dominion.c.gcov'
+
+unittest3.c
+Starting Unit Test 3 for greatHallAction()...
+Game initialized successfully for testing...
+TEST 1: PASSED
+TEST 2: PASSED
+TEST 3: FAILED - G.numActions = 3, Expected = 2
+TEST 4: PASSED
+TEST 5: PASSED
+Unit test 3 complete.
+File 'dominion.c'
+Lines executed:24.69% of 559
+Branches executed:25.78% of 415
+Taken at least once:16.87% of 415
+Calls executed:17.89% of 95
+Creating 'dominion.c.gcov'
+
+unittest4.c
+Starting Unit Test 4 for villageAction()...
+Game initialized successfully for testing...
+TEST 1: PASSED
+TEST 2: PASSED
+TEST 3: PASSED
+TEST 4: PASSED
+TEST 5: PASSED
+Unit test 4 complete.
+File 'dominion.c'
+Lines executed:25.40% of 559
+Branches executed:25.78% of 415
+Taken at least once:17.11% of 415
+Calls executed:20.00% of 95
+Creating 'dominion.c.gcov'
+
+cardtest1.c
+Starting Boundry Adventurer test suite...
+Game initialized successfully for testing...
+Test 1: FAILED - G.discardCount[player] = 1, Expected = 0. Unexpected card discarded.
+Test 2: FAILED - G.playedCardCount = 0, Expected = 1. Played card was not discarded.
+Test 3: FAILED - G.discard[player][0] = 0, Expected = 13. Wrong card discarded.
+Test 4: FAILED - G.discard[player][3] = 1, Expected = 13
+PASSED
+Test 5: FAILED - G.discard[player][498] = 0, Expected = 13
+Boundry test for adventurer discard complete.
+File 'dominion.c'
+Lines executed:28.98% of 559
+Branches executed:27.71% of 415
+Taken at least once:20.00% of 415
+Calls executed:22.11% of 95
+Creating 'dominion.c.gcov'
+
+cardtest2.c
+Starting Boundry Smithy test suite...
+Game initialized successfully for testing...
+Test 1: PASSED
+Test 2: PASSED
+Test 3: PASSED
+Test 4: (If segfault out of bounds not handled gracefully, FAIL) FAILED - system should not accept out of bounds handpos.
+Test 5: (If segfault out of bounds not handled gracefully, FAIL) FAILED - system should not accept out of bounds handpos.
+File 'dominion.c'
+Lines executed:29.16% of 559
+Branches executed:27.71% of 415
+Taken at least once:20.24% of 415
+Calls executed:22.11% of 95
+Creating 'dominion.c.gcov'
+
+cardtest3.c
+Starting positive Salvager tests...
+Game initialized successfully for testing...
+Test 1: PASSED
+Test 2.a: PASSED
+Test 2.b: PASSED
+Test 3: PASSED
+Test 4: PASSED
+Test 5: PASSED
+Card Test 3 complete.
+File 'dominion.c'
+Lines executed:31.31% of 559
+Branches executed:34.94% of 415
+Taken at least once:21.20% of 415
+Calls executed:27.37% of 95
+Creating 'dominion.c.gcov'
+
+cardtest4.c
+Starting positive Salvager tests...
+Game initialized successfully for testing...
+Test 1.a: PASSED
+Test 1.b: PASSED
+Test 2.a: FAIL - P1 top deck card = 1, Expected = 0
+Test 2.b: FAIL - P2 top deck card = 1, Expected = 0
+Test 3.a: FAIL - P1 deckCount = 7, Expected = 10
+Test 3.b: FAIL - P2 top deck card = 7, Expected = 10
+Test 4: FAIL - G.discardCount[0] = 1, Expected = 0
+Test 5: PASSED
+Card Test 4 complete.
+File 'dominion.c'
+Lines executed:32.74% of 559
+Branches executed:35.42% of 415
+Taken at least once:21.93% of 415
+Calls executed:28.42% of 95
+Creating 'dominion.c.gcov'
+
