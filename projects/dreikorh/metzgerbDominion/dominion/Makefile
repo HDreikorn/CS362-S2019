@@ -48,28 +48,28 @@ testCard4: cardtest4.c dominion.o rngs.o
 unittestresults: testAdventurerRefactor testSmithyRefactor testGreatHallRefactor testVillageRefactor testCard1 testCard2 testCard3 testCard4 dominion.o rngs.o
 	echo "unittest1.c" > unittestresults.out
 	./testAdventurerRefactor >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "unittest2.c" >> unittestresults.out
 	./testSmithyRefactor >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "unittest3.c" >> unittestresults.out
 	./testGreatHallRefactor >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "unittest4.c" >> unittestresults.out
 	./testVillageRefactor >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "cardtest1.c" >> unittestresults.out
 	./testCard1 >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "cardtest2.c" >> unittestresults.out
 	./testCard2 >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "cardtest3.c" >> unittestresults.out
 	./testCard3 >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 	echo "cardtest4.c" >> unittestresults.out
 	./testCard4 >> unittestresults.out
-	gcov -b dominion.c >> unittestresults.out
+	gcov -fb dominion.c >> unittestresults.out
 
 testAdventurer: randomtestadventurer.c dominion.o rngs.o
 	gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
